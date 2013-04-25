@@ -38,6 +38,11 @@ class Engine(EngineBase):
         args = map(smart_str, args)
         p = Popen(args)
         p.wait()
+        optim_args = settings.THUMBNAIL_JPEG_CRUSH.split(' ')
+        optim_args.append(out)
+        optim_args.append(out)
+        p2 = Popen(optim_args)
+        p2.wait()
         with open(out, 'rb') as fp:
             thumbnail.write(fp.read())
         os.close(handle)

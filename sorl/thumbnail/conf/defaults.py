@@ -26,6 +26,7 @@ THUMBNAIL_ENGINE = 'sorl.thumbnail.engines.pil_engine.Engine'
 # Path to Imagemagick or Graphicsmagick ``convert`` and ``identify``.
 THUMBNAIL_CONVERT = 'convert'
 THUMBNAIL_IDENTIFY = 'identify'
+THUMBNAIL_JPEG_CRUSH = 'jpegtran -optimize -copy none -progressive -perfect -outfile'
 
 # Storage for the generated thumbnails
 THUMBNAIL_STORAGE = settings.DEFAULT_FILE_STORAGE
