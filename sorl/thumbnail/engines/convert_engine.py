@@ -69,7 +69,10 @@ class Engine(EngineBase):
             p = Popen(args, stdout=PIPE)
             p.wait()
             m = size_re.match(p.stdout.read())
-            image['size'] = int(m.group('x')), int(m.group('y'))
+            x = y = 0
+            if m:
+                x, y = int(m.group('x')), int(m.group('y'))
+            image['size'] = x, y
         return image['size']
 
     def is_valid_image(self, raw_data):
